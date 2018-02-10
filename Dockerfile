@@ -36,7 +36,8 @@ RUN yum update -y && \
         ImageMagick \
         php-devel \
         php-pecl-imagick \
-        gcc && \
+        gcc \
+        yum-plugin-remove-with-leaves && \
     yum clean all
 
 COPY container-files /
@@ -45,10 +46,7 @@ RUN pecl install xdebug-2.2.7
 RUN find /tmp -name "*.sh" -exec chmod +x {} \; && \
     bash /tmp/install-pdftk.sh && \
     bash /tmp/install-wkhtmltopdf.sh && \
-    rm -rf /tmp/*.sh
-
-RUN yum remove php-devel gcc wz && \
-    yum clean all
+    bash /tmp/clean-container.sh
 
 EXPOSE 80 9001
 WORKDIR /var/www/html

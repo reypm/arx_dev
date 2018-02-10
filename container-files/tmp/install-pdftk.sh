@@ -23,5 +23,3 @@ if [ "${INSTALL_PDFTK}" == "yes" ]; then
     echo "$(tput setaf 1) $(tput setab 7)pdftk installation finished ...$(tput sgr 0)"
     echo "$(tput setaf 7)================================================================================"
 fi
-
-rm -f install-pdftk.sh
