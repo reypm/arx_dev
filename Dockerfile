@@ -42,8 +42,8 @@ RUN yum update -y && \
 
 COPY container-files /
 
-RUN pecl install xdebug-2.2.7
-RUN find /tmp -name "*.sh" -exec chmod +x {} \; && \
+RUN pecl install xdebug-2.2.7 && \
+    find /tmp -name "*.sh" -exec chmod +x {} \; && \
     bash /tmp/install-pdftk.sh && \
     bash /tmp/install-wkhtmltopdf.sh && \
     bash /tmp/clean-container.sh
