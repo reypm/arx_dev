@@ -48,6 +48,6 @@ RUN pecl install xdebug-2.2.7 && \
     bash /tmp/install-wkhtmltopdf.sh && \
     bash /tmp/clean-container.sh
 
-EXPOSE 80
+EXPOSE 80 9001
 WORKDIR /var/www/html
 ENTRYPOINT bash -C '/entrypoint.sh';'bash'
