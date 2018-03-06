@@ -3,9 +3,9 @@ MAINTAINER Reynier Perez <reynierpm@gmail.com>
 
 ENV TERM=xterm
 
-ARG INSTALL_WKHTMLTOPDF=no
+ARG INSTALL_WKHTMLTOPDF=yes
 ARG WKHTMLTOPDF_VERSION=latest
-ARG INSTALL_PDFTK=no
+ARG INSTALL_PDFTK=yes
 ARG PDFTK_VERSION=latest
 ARG PHP_VERSION=default
 
@@ -48,6 +48,6 @@ RUN pecl install xdebug-2.2.7 && \
     bash /tmp/install-wkhtmltopdf.sh && \
     bash /tmp/clean-container.sh
 
-EXPOSE 80 9001
+EXPOSE 80
 WORKDIR /var/www/html
 ENTRYPOINT bash -C '/entrypoint.sh';'bash'

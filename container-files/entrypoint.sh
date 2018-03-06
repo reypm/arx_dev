@@ -19,6 +19,13 @@ fi
 echo "UID: $uid"
 echo "GID: $gid"
 
+# Create xdebug.log file and give the proper permissions
+touch /var/log/xdebug.log
+chown apache:root /var/log/xdebug.log
+
+# Send logs to STDOUT
+ln -sfn /dev/stdout /var/log/xdebug.log
+
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2/apache2.pid
 
